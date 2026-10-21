@@ -1,13 +1,13 @@
 /* =========================================================
    Starlite Computer Services - script
-   EDIT THE THREE BLOCKS AT THE TOP (SITE, PARTNERS, STORIES).
+   EDIT THE FOUR BLOCKS AT THE TOP (SITE, PARTNERS, INDUSTRIES, STORIES).
    Everything below them builds the pages from that information.
    ========================================================= */
 
 /* ---------- 1. Company details (hours are still a PLACEHOLDER) ---------- */
 const SITE = {
   name: "Starlite Computer Services",
-  tagline: "UPS supply, installation, maintenance and repair, so your power backup never lets you down.",
+  tagline: "UPS systems, batteries, networking and Apple for business, so your work never stops when the power goes out. An ISO 9001:2015 certified company.",
   phone: "99849990056",
   phoneLink: "99849990056",
   email: "srinivasrao@starlitecomputerservices.com",
@@ -45,7 +45,19 @@ const PARTNERS = [
 ];
 
 
-/* ---------- 3. Success stories ----------
+/* ---------- 3. Industries we serve ----------
+   Shown on the home and About pages. Industry names only, never client names.
+   icon: one of the keys in INDUSTRY_ICONS below. */
+const INDUSTRIES = [
+  { icon: "film", title: "Cinemas and multiplexes", text: "Projection, sound, ticketing and F&B systems that can't stop mid-show." },
+  { icon: "clapper", title: "Film production and VFX", text: "Edit suites, render farms and storage for production houses and studios." },
+  { icon: "gov", title: "Government, police and defence", text: "Control rooms, surveillance and communication systems that run around the clock." },
+  { icon: "health", title: "Hospitals and diagnostics", text: "Lab analysers, imaging and patient systems that need clean, steady power." },
+  { icon: "pill", title: "Pharmaceuticals and research labs", text: "QC labs, process controls and the data systems behind compliance." },
+  { icon: "bank", title: "Banking and financial services", text: "Branch servers, ATMs and teams that can't afford a minute offline." }
+];
+
+/* ---------- 4. Success stories ----------
    Each entry becomes a card on success-stories.html AND its own full page
    (success-story.html?id=your-id). The first three also appear on the home page.
    Stories with partner: "apple" also appear on apple.html.
@@ -336,6 +348,29 @@ function logoCard(item) {
   });
   card.appendChild(img);
   return card;
+}
+
+const INDUSTRY_ICONS = {
+  film: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 4v16M17 4v16M3 9h4M3 15h4M17 9h4M17 15h4"/></svg>',
+  clapper: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11h16v8a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z"/><path d="M4 11l-.6-3.4a1 1 0 0 1 .8-1.2l13.8-2.4a1 1 0 0 1 1.2.8L19.6 7 4 11"/><path d="M8.5 5.6l2 4.2M13.5 4.7l2 4.2"/></svg>',
+  gov: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-5 9 5M5 9v9M9.5 9v9M14.5 9v9M19 9v9M3 21h18"/></svg>',
+  health: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M12 8v8M8 12h8"/></svg>',
+  pill: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.5 20.5a5 5 0 0 1-7-7l9-9a5 5 0 0 1 7 7z"/><path d="M8.5 8.5l7 7"/></svg>',
+  bank: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M2 10h20M6 15h4"/></svg>'
+};
+
+function buildIndustries() {
+  var host = document.getElementById("industries");
+  if (!host) return;
+  INDUSTRIES.forEach(function (ind) {
+    var card = el("article", "industry");
+    var icon = el("span", "industry-icon");
+    icon.innerHTML = INDUSTRY_ICONS[ind.icon] || "";
+    card.appendChild(icon);
+    card.appendChild(el("h3", null, ind.title));
+    card.appendChild(el("p", null, ind.text));
+    host.appendChild(card);
+  });
 }
 
 /* Big partner cards for the Partners page (logo box + name underneath) */
@@ -629,6 +664,7 @@ buildHeader();
 buildFooter();
 buildServices();
 buildStoryList("story-preview", 3);
+buildIndustries();
 buildPartnerCards("partner-grid");
 buildPartners("partner-preview", "wide");
 buildContact();

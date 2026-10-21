@@ -144,6 +144,12 @@ img { max-width: 100%; display: block; }
   .has-menu { padding-block: 0; }
   .menu { position: static; box-shadow: none; border: 0; background: transparent; padding: 0 0 .5rem .75rem; min-width: 0; }
 }
+@media (max-width: 520px) {
+  .bar { gap: .75rem; }
+  .site-header .brand { white-space: normal; font-size: 1rem; line-height: 1.15; min-width: 0; }
+  .brand-logo { width: 40px; height: 34px; }
+  .tools { gap: .5rem; }
+}
 
 /* ---------- Buttons ---------- */
 .btn {
@@ -337,6 +343,22 @@ form.form .btn { justify-self: start; }
 /* An odd card left alone on the last row stretches across it */
 @media (min-width: 961px) { #service-cards .card:last-child:nth-child(3n+1) { grid-column: 1 / -1; } }
 @media (min-width: 601px) and (max-width: 960px) { #service-cards .card:last-child:nth-child(2n+1) { grid-column: 1 / -1; } }
+
+/* ---------- Industries we serve ---------- */
+.industry-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.industry { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 1.6rem; display: flex; flex-direction: column; gap: .55rem; }
+.industry h3 { font-size: 1.25rem; }
+.industry p { color: var(--muted); }
+.industry-icon { display: grid; place-items: center; width: 48px; height: 48px; margin-bottom: .35rem; border-radius: 12px; background: rgba(242, 196, 109, 0.12); border: 1px solid rgba(242, 196, 109, 0.28); color: var(--accent); }
+.industry-icon svg { width: 24px; height: 24px; }
+:root[data-theme="light"] .industry-icon { color: #8a5a00; }
+@media (max-width: 960px) { .industry-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .industry-grid { grid-template-columns: 1fr; } }
+
+/* ---------- Trust badges under the home hero ---------- */
+.trust { margin-top: 2.25rem; display: flex; flex-wrap: wrap; gap: .6rem; list-style: none; padding: 0; }
+.trust li { display: inline-flex; align-items: center; gap: .45rem; padding: .45rem .9rem; border-radius: 999px; border: 1px solid rgba(242, 196, 109, 0.3); background: rgba(10, 12, 28, 0.55); color: var(--night-ink); font-size: .92rem; font-weight: 500; }
+.trust svg { width: 16px; height: 16px; color: var(--accent); flex: none; }
 
 /* ---------- Networking page ---------- */
 .challenge { align-items: center; text-align: center; }
