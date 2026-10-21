@@ -1,6 +1,6 @@
 /* =========================================================
    Starlite Computer Services - script
-   EDIT THE FOUR BLOCKS AT THE TOP (SITE, CLIENT_SECTORS, PARTNERS, CASE_STUDIES).
+   EDIT THE THREE BLOCKS AT THE TOP (SITE, PARTNERS, STORIES).
    Everything below them builds the pages from that information.
    ========================================================= */
 
@@ -34,56 +34,7 @@ const SITE = {
   ]
 };
 
-/* ---------- 2. Clients ----------
-   Each client: name (shown if the logo file is missing) and logo (file path).
-   TO ADD A CLIENT: copy one line, change the name, and save the logo into
-   images/clients/ using the same file name you write here.
-   Sections with an empty list show a "coming soon" note. */
-const CLIENT_SECTORS = [
-  {
-    title: "Hospitality & Entertainment",
-    icon: "film",
-    clients: [
-      { name: "Red Rhino", logo: "images/clients/red-rhino.png" },          // logo not added yet
-      { name: "Macaw", logo: "images/clients/macaw.png" },
-      { name: "Broadway", logo: "images/clients/broadway.png" },            // logo not added yet
-      { name: "Asian Cinemas", logo: "images/clients/asian-cinemas.png" },
-      { name: "Suresh Productions", logo: "images/clients/suresh-productions.png" },
-      { name: "Mythri Movie Makers", logo: "images/clients/mythri-movie-makers.png" },
-      { name: "V Celluloid", logo: "images/clients/v-celluloid.png" },
-      { name: "SVC Cinemas", logo: "images/clients/svc-cinemas.png" }       // logo not added yet
-    ]
-  },
-  {
-    title: "Government Bodies",
-    icon: "gov",
-    clients: [
-      { name: "AP Police", logo: "images/clients/ap-police.png" },
-      { name: "Telangana State Police", logo: "images/clients/telangana-state-police.png" },
-      { name: "DRDO", logo: "images/clients/drdo.png" },
-      { name: "APMDC", logo: "images/clients/apmdc.png" }
-    ]
-  },
-  {
-    title: "Healthcare",
-    icon: "health",
-    clients: [
-      { name: "Tesla Unipath Diagnostics", logo: "images/clients/tesla-labs.png" },
-      { name: "Medicover", logo: "images/clients/medicover.png" },
-      { name: "Pulse Hospital", logo: "images/clients/pulse-hospitals.png" }
-    ]
-  },
-  {
-    title: "Pharmaceuticals",
-    icon: "pill",
-    clients: [
-      { name: "MSN", logo: "images/clients/msn.png" },
-      { name: "Vimta", logo: "images/clients/vimta.png" }
-    ]
-  }
-];
-
-/* ---------- 3. Partners ----------
+/* ---------- 2. Partners ----------
    Save official logo files in images/partners/ (use each company's brand
    guidelines). Until the files exist, the name shows instead. */
 const PARTNERS = [
@@ -93,31 +44,109 @@ const PARTNERS = [
 ];
 
 
-/* ---------- 4. Case studies ----------
-   Each entry becomes a card on case-studies.html AND its own full page
-   (case-study.html?id=your-id). To add a project: copy the whole { ... } block,
-   give it a new unique id (lowercase, dashes, no spaces), fill in your real
-   details, and delete the sample. Fields you leave empty ("" or []) are skipped.
+/* ---------- 3. Success stories ----------
+   Each entry becomes a card on success-stories.html AND its own full page
+   (success-story.html?id=your-id). The first three also appear on the home page.
+   To add a project: copy the whole { ... } block, give it a new unique id
+   (lowercase, dashes, no spaces) and fill in the details.
+   Fields you leave empty ("" or []) are skipped.
    images: put photos in images/projects/ and list them like
    ["images/projects/site-1.jpg", "images/projects/site-2.jpg"]. */
-const CASE_STUDIES = [
+const STORIES = [
   {
-    id: "sample-project",
-    sample: true,                       // delete this line for a real project
-    title: "Sample project: replace with your project name",
-    client: "Client name",              // or "Confidential"
-    sector: "Sector",                   // e.g. Government, Healthcare, Pharmaceuticals
-    location: "City, State",
-    year: "2026",
-    facts: [["Scope", "What you delivered"], ["Scale", "Capacity, sites or size"]],
-    summary: "Write one or two sentences describing the project. This appears on the Case Studies page and at the top of the project page.",
-    challenge: "Describe the problem or requirement the client had: what made this project complex or demanding.",
+    id: "amb-cinemas-hyderabad",
+    title: "AMB Cinemas, Hyderabad",
+    sector: "Cinema",
+    location: "Gachibowli, Hyderabad",
+    facts: [["Equipment", "2 × 80 kVA, 2 × 30 kVA"], ["Total capacity", "220 kVA"]],
+    summary: "A seven-screen luxury multiplex where every show depends on laser projection, Dolby Atmos sound and live ticketing. We delivered 220 kVA of online UPS protection across four units.",
+    challenge: "Laser projectors, cinema servers and sound processors do not tolerate a sudden loss of power. A dip during the changeover to the generator can stop a show mid-screening, interrupt ticketing at the box office and risk damage to expensive projection equipment.",
     approach: [
-      "Describe the first major step of the work.",
-      "Describe the next step, including any special equipment, design or planning.",
-      "Describe how it was installed, tested and handed over."
+      "Surveyed the projection booths, sound racks, servers and box-office systems to measure the real running load.",
+      "Split the load across two 80 kVA and two 30 kVA online UPS systems, so projection and sound run on dedicated capacity, separate from ticketing and IT.",
+      "Sized the battery banks to carry every screen through the generator changeover, then installed, load tested and commissioned each unit."
     ],
-    result: "Describe the outcome: what now works, what was achieved, and anything measurable you can state accurately.",
+    result: "Shows, ticketing and food and beverage billing keep running through grid outages and generator changeovers, with no break in power to the projectors or servers.",
+    images: []
+  },
+  {
+    id: "mihira-vfx-studios",
+    title: "Mihira VFX Studios",
+    sector: "VFX and post-production",
+    location: "Hyderabad",
+    facts: [["Equipment", "100 kVA, 30 kVA, 6 kVA"], ["Total capacity", "136 kVA"]],
+    summary: "A Hyderabad VFX and CGI studio running render workstations and shared storage around the clock. We delivered 136 kVA of online UPS protection in three tiers.",
+    challenge: "Rendering and simulation jobs can run for hours. A single power cut can wipe out a night of rendering, corrupt files on shared storage and push back delivery dates for film projects.",
+    approach: [
+      "Mapped the studio's load: the artist and render floor, the server and storage room, and smaller critical equipment.",
+      "Installed a 100 kVA online UPS for the main floor, a 30 kVA unit for servers and storage, and a 6 kVA unit for smaller critical loads, so a fault on one tier never takes down another.",
+      "Matched battery backup to the time needed to save work and shut down safely, then commissioned and load tested each system."
+    ],
+    result: "Artists and render nodes ride through power cuts without losing work, and storage stays protected from sudden shutdowns.",
+    images: []
+  },
+  {
+    id: "icici-bank",
+    title: "ICICI Bank",
+    sector: "Banking",
+    location: "",
+    facts: [["Equipment", "Static transfer switches (STS)"]],
+    summary: "Static transfer switches that keep critical banking equipment powered even if one UPS source fails.",
+    challenge: "Banking systems such as servers, network equipment and transaction terminals must stay online at all times. With a single UPS feed, a UPS fault or maintenance shutdown can cut power to critical equipment.",
+    approach: [
+      "Reviewed the existing UPS setup and identified the loads that needed two independent power sources.",
+      "Supplied and installed static transfer switches that move the load from the primary source to the alternate source within milliseconds.",
+      "Tested transfers under load so that switching between sources is seamless to the connected equipment."
+    ],
+    result: "Critical equipment now has a redundant power path. A UPS can fail or be taken down for maintenance without interrupting banking operations.",
+    images: []
+  },
+  {
+    id: "amb-cinemas-bangalore",
+    title: "AMB Cinemas, Bengaluru",
+    sector: "Cinema",
+    location: "Gandhi Nagar, Bengaluru",
+    facts: [["Equipment", "2 × 100 kVA, 2 × 20 kVA"], ["Total capacity", "240 kVA"]],
+    summary: "A nine-screen multiplex on the site of the old Kapali theatre, with laser projection across every screen and South India's first Dolby Cinema. We delivered 240 kVA of online UPS protection.",
+    challenge: "Barco laser projection on all nine screens, a 588-seat Dolby Cinema auditorium and shows from early morning to late night add up to a large, sensitive load that must never drop during a show.",
+    approach: [
+      "Calculated the combined load of the projection, sound and server equipment across all nine screens.",
+      "Installed two 100 kVA online UPS systems for the main screen equipment and two 20 kVA units for supporting systems.",
+      "Commissioned and load tested the full installation with battery banks sized to cover the changeover to the generator."
+    ],
+    result: "All nine screens, including the Dolby Cinema auditorium, stay on through power cuts and voltage fluctuations, keeping a full day of shows on schedule.",
+    images: []
+  },
+  {
+    id: "aaa-cinemas-vizag",
+    title: "AAA Cinemas, Visakhapatnam",
+    sector: "Cinema",
+    location: "Inorbit Mall, Visakhapatnam",
+    facts: [["Equipment", "2 × 100 kVA"], ["Total capacity", "200 kVA"]],
+    summary: "An eight-screen multiplex with 4K laser projection, Dolby Atmos and one of the largest cinema LED screens in Andhra Pradesh. We delivered 200 kVA of online UPS protection.",
+    challenge: "Eight screens of 4K laser projection, Dolby Atmos sound and a giant LED cinema screen create a heavy, sensitive load. Coastal Visakhapatnam also sees frequent supply fluctuations.",
+    approach: [
+      "Assessed the load of the projection, LED screen, sound and server equipment across all eight screens.",
+      "Installed two 100 kVA online UPS systems, sharing the load so that each unit runs with headroom.",
+      "Configured the battery banks, then installed, load tested and commissioned the system before opening day."
+    ],
+    result: "The multiplex runs on clean, stable power, protecting its projectors and LED screen from outages, surges and voltage dips.",
+    images: []
+  },
+  {
+    id: "allu-cinemas",
+    title: "Allu Cinemas, Hyderabad",
+    sector: "Cinema",
+    location: "Kokapet, Hyderabad",
+    facts: [["Equipment", "1 × 100 kVA, 3 × 30 kVA, 1 × 40 kVA"], ["Total capacity", "230 kVA"]],
+    summary: "A four-screen premium multiplex with a 75-foot Dolby Cinema screen, reported as the largest in India. We delivered 230 kVA of online UPS protection across five units.",
+    challenge: "The flagship Dolby Cinema auditorium, with Dolby Vision projection and a 64-channel Dolby Atmos system, sits alongside three more Barco 4K laser screens. Each auditorium needs dependable power of its own.",
+    approach: [
+      "Measured the load of each auditorium and of the shared building systems.",
+      "Installed a 100 kVA online UPS for the Dolby Cinema auditorium, a 30 kVA unit for each of the three other screens, and a 40 kVA unit for shared systems.",
+      "Commissioned and load tested each unit, so that a fault in one auditorium never affects the others."
+    ],
+    result: "Every screen, including the flagship Dolby Cinema, has its own protected power supply, and shows carry on through outages without interruption.",
     images: []
   }
 ];
@@ -126,12 +155,6 @@ const CASE_STUDIES = [
    Nothing below needs editing for normal changes.
    ========================================================= */
 
-const ICONS = {
-  film: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 4v16M17 4v16M3 9h4M3 15h4M17 9h4M17 15h4"/></svg>',
-  gov: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-5 9 5M5 9v9M9.5 9v9M14.5 9v9M19 9v9M3 21h18"/></svg>',
-  health: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M12 8v8M8 12h8"/></svg>',
-  pill: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 20.5a5 5 0 0 1-7-7l9-9a5 5 0 0 1 7 7z"/><path d="M8.5 8.5l7 7"/></svg>'
-};
 const STAR = '<svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2 C17.2 10.5 21.5 14.8 30 16 C21.5 17.2 17.2 21.5 16 30 C14.8 21.5 10.5 17.2 2 16 C10.5 14.8 14.8 10.5 16 2 Z" fill="#f2c46d"/></svg>';
 
 /* Saved theme (dark is the default, like the reference site) */
@@ -156,9 +179,8 @@ function buildHeader() {
   var page = document.body.getAttribute("data-page");
   var chevron = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>';
   var slug = document.body.getAttribute("data-slug");
-  var aboutCurrent = (page === "about" || page === "clients" || page === "partners");
+  var aboutCurrent = (page === "about" || page === "partners");
   var servicesCurrent = (page === "service");
-  var showCases = hasRealCaseStudies();
   var serviceItems = SITE.services.map(function (s) {
     return '<li><a href="' + s.slug + '.html"' + (slug === s.slug ? ' aria-current="page"' : "") + ">" + s.title + "</a></li>";
   }).join("");
@@ -173,7 +195,6 @@ function buildHeader() {
           '<button class="menu-toggle" type="button" aria-haspopup="true" aria-expanded="false"' + (aboutCurrent ? ' data-current="true"' : "") + ">About Us" + chevron + "</button>" +
           '<ul class="menu">' +
             '<li><a href="about.html"' + (page === "about" ? ' aria-current="page"' : "") + ">Our story</a></li>" +
-            '<li><a href="clients.html"' + (page === "clients" ? ' aria-current="page"' : "") + ">Our clients</a></li>" +
             '<li><a href="partners.html"' + (page === "partners" ? ' aria-current="page"' : "") + ">Partners</a></li>" +
           "</ul>" +
         "</div>" +
@@ -182,7 +203,7 @@ function buildHeader() {
           '<ul class="menu">' + serviceItems + "</ul>" +
         "</div>" +
         '<a href="delta-ups.html"' + (page === "delta" ? ' aria-current="page"' : "") + ">Delta UPS</a>" +
-        (showCases ? '<a href="case-studies.html"' + (page === "case-studies" ? ' aria-current="page"' : "") + ">Case Studies</a>" : "") +
+        '<a href="success-stories.html"' + (page === "stories" ? ' aria-current="page"' : "") + ">Success Stories</a>" +
         '<a href="contact.html"' + (page === "contact" ? ' aria-current="page"' : "") + ">Contact</a>" +
       "</nav>" +
       '<div class="tools">' +
@@ -244,7 +265,7 @@ function buildFooter() {
       '<div class="footer-grid">' +
         '<div><a class="brand" href="index.html">' + STAR + SITE.name + '</a><p class="footer-about">' + SITE.tagline + "</p></div>" +
         "<div><h3>Services</h3><ul>" + services + "</ul></div>" +
-        '<div><h3>Company</h3><ul><li><a href="about.html">About us</a></li><li><a href="clients.html">Our clients</a></li>' + (hasRealCaseStudies() ? '<li><a href="case-studies.html">Case studies</a></li>' : "") + '<li><a href="partners.html">Partners</a></li><li><a href="contact.html">Contact</a></li></ul></div>' +
+        '<div><h3>Company</h3><ul><li><a href="about.html">About us</a></li><li><a href="success-stories.html">Success stories</a></li><li><a href="partners.html">Partners</a></li><li><a href="contact.html">Contact</a></li></ul></div>' +
         "<div><h3>Contact</h3><ul>" +
           SITE.addresses.map(function (a) { return "<li><strong>" + a.label + ":</strong> " + a.text + "</li>"; }).join("") +
           '<li><a href="tel:' + SITE.phoneLink + '">' + SITE.phone + "</a></li>" +
@@ -269,36 +290,6 @@ function logoCard(item) {
   });
   card.appendChild(img);
   return card;
-}
-
-function buildClients() {
-  var host = document.getElementById("client-sectors");
-  if (!host) return;
-  CLIENT_SECTORS.forEach(function (sector) {
-    var section = el("section", "sector");
-    var head = el("div", "sector-head");
-    var icon = el("span", "sector-icon");
-    icon.innerHTML = ICONS[sector.icon] || "";
-    head.appendChild(icon);
-    head.appendChild(el("h2", null, sector.title));
-    section.appendChild(head);
-    if (sector.clients.length) {
-      var grid = el("div", "logo-grid");
-      sector.clients.forEach(function (c) { grid.appendChild(logoCard(c)); });
-      section.appendChild(grid);
-    } else {
-      section.appendChild(el("p", "empty-note", "Clients in this sector will be listed here soon."));
-    }
-    host.appendChild(section);
-  });
-}
-
-function buildClientPreview() {
-  var host = document.getElementById("client-preview");
-  if (!host) return;
-  var all = [];
-  CLIENT_SECTORS.forEach(function (s) { all = all.concat(s.clients); });
-  all.slice(0, 6).forEach(function (c) { host.appendChild(logoCard(c)); });
 }
 
 /* Big partner cards for the Partners page (logo box + name underneath) */
@@ -350,74 +341,62 @@ function buildServices() {
   });
 }
 
-/* ---------- Case studies ----------
-   Sample entries are hidden from visitors. To preview them, add ?preview to the URL. */
-function hasRealCaseStudies() {
-  return CASE_STUDIES.some(function (c) { return !c.sample; });
-}
-function visibleCaseStudies() {
-  var preview = /[?&]preview\b/.test(window.location.search);
-  return CASE_STUDIES.filter(function (c) { return preview || !c.sample; });
-}
+/* ---------- Success stories ---------- */
 function esc(t) {
   return String(t == null ? "" : t).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 }
 
-function buildCaseStudyList() {
-  var host = document.getElementById("cs-list");
-  if (!host) return;
-  var list = visibleCaseStudies();
-  if (!list.length) {
-    host.appendChild(el("p", "empty-note", "Case studies will be published here soon. In the meantime, see who we work with on our clients page."));
-    return;
-  }
-  list.forEach(function (c) {
-    var card = el("article", "cs-card");
-    var meta = [c.client, c.location, c.year].filter(Boolean).join(" \u2022 ");
-    card.innerHTML =
-      '<div class="cs-tags"><span class="pill small">' + esc(c.sector) + "</span>" + (c.sample ? '<span class="pill small sample">Sample</span>' : "") + "</div>" +
-      "<h3>" + esc(c.title) + "</h3>" +
-      '<p class="cs-meta">' + esc(meta) + "</p>" +
-      "<p>" + esc(c.summary) + "</p>" +
-      '<a href="case-study.html?id=' + encodeURIComponent(c.id) + '">Read the case study</a>';
-    host.appendChild(card);
-  });
+function storyCard(c) {
+  var card = el("article", "cs-card");
+  var total = (c.facts || []).filter(function (f) { return f[0] === "Total capacity"; })[0];
+  card.innerHTML =
+    '<div class="cs-tags"><span class="pill small">' + esc(c.sector) + "</span>" + (total ? '<span class="pill small">' + esc(total[1]) + "</span>" : "") + "</div>" +
+    "<h3>" + esc(c.title) + "</h3>" +
+    (c.location ? '<p class="cs-meta">' + esc(c.location) + "</p>" : "") +
+    "<p>" + esc(c.summary) + "</p>" +
+    '<a href="success-story.html?id=' + encodeURIComponent(c.id) + '">Read the story</a>';
+  return card;
 }
 
-function buildCaseStudyDetail() {
+function buildStoryList(id, limit) {
+  var host = document.getElementById(id);
+  if (!host) return;
+  STORIES.slice(0, limit || STORIES.length).forEach(function (c) { host.appendChild(storyCard(c)); });
+}
+
+function buildStoryDetail() {
   var host = document.getElementById("cs-detail");
   if (!host) return;
   var id = "";
   try { id = new URLSearchParams(window.location.search).get("id") || ""; } catch (e) {}
-  var c = visibleCaseStudies().filter(function (x) { return x.id === id; })[0];
+  var c = STORIES.filter(function (x) { return x.id === id; })[0];
   if (!c) {
     host.innerHTML =
-      '<section><div class="wrap"><div class="center-head"><h1 style="font-size:2.4rem">Case study not found</h1>' +
-      '<p>We could not find that project. See all of our case studies instead.</p></div>' +
-      '<p style="text-align:center"><a class="btn" href="case-studies.html">All case studies</a></p></div></section>';
+      '<section><div class="wrap"><div class="center-head"><h1 style="font-size:2.4rem">Story not found</h1>' +
+      '<p>We could not find that project. See all of our success stories instead.</p></div>' +
+      '<p style="text-align:center"><a class="btn" href="success-stories.html">All success stories</a></p></div></section>';
     return;
   }
   document.title = c.title + " | " + SITE.name;
   var arrow = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
-  var chips = [["Client", c.client], ["Location", c.location], ["Year", c.year]].concat(c.facts || [])
+  var chips = [["Location", c.location]].concat(c.facts || [])
     .filter(function (f) { return f[1]; })
     .map(function (f) { return '<span class="chip">' + esc(f[0]) + ": <strong>" + esc(f[1]) + "</strong></span>"; }).join("");
   var body = "";
-  if (c.sample) body += '<p class="sample-note">This is a sample page. Replace it with your real project in script.js.</p>';
   if (c.challenge) body += "<h2>The challenge</h2><p>" + esc(c.challenge) + "</p>";
-  if (c.approach && c.approach.length) body += "<h2>What we did</h2><ul>" + c.approach.map(function (a) { return "<li>" + esc(a) + "</li>"; }).join("") + "</ul>";
+  if (c.approach && c.approach.length) body += "<h2>How we helped</h2><ul>" + c.approach.map(function (a) { return "<li>" + esc(a) + "</li>"; }).join("") + "</ul>";
   if (c.result) body += "<h2>The result</h2><p>" + esc(c.result) + "</p>";
   if (c.images && c.images.length) {
     body += '<div class="gallery">' + c.images.map(function (src) { return '<img src="' + esc(src) + '" alt="' + esc(c.title) + '" loading="lazy" onerror="this.remove()">'; }).join("") + "</div>";
   }
   host.innerHTML =
     '<div class="service-hero"><div class="wrap"><div class="inner">' +
-      '<a class="back-link" href="case-studies.html">All case studies</a>' +
+      '<a class="back-link" href="success-stories.html">All success stories</a>' +
       '<span class="pill">' + esc(c.sector) + "</span>" +
       "<h1>" + esc(c.title) + "</h1>" +
       '<p class="lead">' + esc(c.summary) + "</p>" +
       '<div class="chips">' + chips + "</div>" +
-      '<div class="hero-actions"><a class="btn-glow" href="contact.html">Discuss a similar project' + arrow + '</a><a class="btn-outline" href="case-studies.html">All case studies</a></div>' +
+      '<div class="hero-actions"><a class="btn-glow" href="contact.html">Discuss a similar project' + arrow + '</a><a class="btn-outline" href="success-stories.html">All success stories</a></div>' +
     "</div></div></div>" +
     '<section><div class="wrap"><div class="cs-body">' + body + "</div></div></section>" +
     '<section class="alt cta"><div class="wrap"><h2>Have a demanding project?</h2>' +
@@ -601,13 +580,12 @@ function startChooser() {
 buildHeader();
 buildFooter();
 buildServices();
-buildClients();
-buildClientPreview();
+buildStoryList("story-preview", 3);
 buildPartnerCards("partner-grid");
 buildPartners("partner-preview", "wide");
 buildContact();
-buildCaseStudyList();
-buildCaseStudyDetail();
+buildStoryList("cs-list");
+buildStoryDetail();
 startSky();
 startChooser();
 buildWhatsApp();
