@@ -38,9 +38,9 @@ const SITE = {
    Save official logo files in images/partners/ (use each company's brand
    guidelines). Until the files exist, the name shows instead. */
 const PARTNERS = [
-  { name: "Apple", logo: "images/partners/apple.svg" },
+  { name: "Apple", logo: "images/partners/apple.svg", note: "Direct partner", link: "apple.html", linkText: "See the Apple range" },
   { name: "Delta Electronics", logo: "images/partners/delta-electronics.svg", note: "Authorised partner", link: "delta-ups.html", linkText: "See the Delta UPS range" },
-  { name: "Amara Raja", logo: "images/partners/amara-raja.svg" }
+  { name: "Amara Raja", logo: "images/partners/amara-raja.svg", note: "Authorised partner", link: "amara-raja.html", linkText: "See the Amara Raja range" }
 ];
 
 
@@ -181,6 +181,7 @@ function buildHeader() {
   var slug = document.body.getAttribute("data-slug");
   var aboutCurrent = (page === "about" || page === "partners");
   var servicesCurrent = (page === "service");
+  var productsCurrent = (page === "delta" || page === "apple" || page === "amara-raja");
   var serviceItems = SITE.services.map(function (s) {
     return '<li><a href="' + s.slug + '.html"' + (slug === s.slug ? ' aria-current="page"' : "") + ">" + s.title + "</a></li>";
   }).join("");
@@ -202,7 +203,14 @@ function buildHeader() {
           '<button class="menu-toggle" type="button" aria-haspopup="true" aria-expanded="false"' + (servicesCurrent ? ' data-current="true"' : "") + ">Services" + chevron + "</button>" +
           '<ul class="menu">' + serviceItems + "</ul>" +
         "</div>" +
-        '<a href="delta-ups.html"' + (page === "delta" ? ' aria-current="page"' : "") + ">Delta UPS</a>" +
+        '<div class="has-menu">' +
+          '<button class="menu-toggle" type="button" aria-haspopup="true" aria-expanded="false"' + (productsCurrent ? ' data-current="true"' : "") + ">Products" + chevron + "</button>" +
+          '<ul class="menu">' +
+            '<li><a href="delta-ups.html"' + (page === "delta" ? ' aria-current="page"' : "") + ">Delta UPS</a></li>" +
+            '<li><a href="amara-raja.html"' + (page === "amara-raja" ? ' aria-current="page"' : "") + ">Amara Raja batteries</a></li>" +
+            '<li><a href="apple.html"' + (page === "apple" ? ' aria-current="page"' : "") + ">Apple</a></li>" +
+          "</ul>" +
+        "</div>" +
         '<a href="success-stories.html"' + (page === "stories" ? ' aria-current="page"' : "") + ">Success Stories</a>" +
         '<a href="contact.html"' + (page === "contact" ? ' aria-current="page"' : "") + ">Contact</a>" +
       "</nav>" +
@@ -259,7 +267,7 @@ function buildFooter() {
   if (!host) return;
   host.className = "site-footer";
   var services = SITE.services.map(function (s) { return '<li><a href="' + s.slug + '.html">' + s.title + "</a></li>"; }).join("") +
-    '<li><a href="delta-ups.html">Delta UPS range</a></li>';
+    '<li><a href="delta-ups.html">Delta UPS range</a></li><li><a href="amara-raja.html">Amara Raja batteries</a></li><li><a href="apple.html">Apple products</a></li>';
   host.innerHTML =
     '<div class="wrap">' +
       '<div class="footer-grid">' +
@@ -428,7 +436,7 @@ function buildContact() {
   }
   var topic = document.getElementById("topic");
   if (topic) {
-    SITE.services.concat([{ title: "Delta UPS products" }, { title: "Something else" }]).forEach(function (s) {
+    SITE.services.concat([{ title: "Delta UPS products" }, { title: "Amara Raja batteries" }, { title: "Apple products" }, { title: "Something else" }]).forEach(function (s) {
       var o = document.createElement("option");
       o.textContent = s.title;
       topic.appendChild(o);

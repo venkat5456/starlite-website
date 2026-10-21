@@ -420,7 +420,7 @@ form.form .btn { justify-self: start; }
 .stats dt { color: var(--muted); font-size: 1.05rem; }
 :root[data-theme="light"] .stats dd { color: #8a5a00; }
 
-.about-links { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+.about-links { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
 .about-link {
   display: block; text-decoration: none; color: var(--ink);
   border-top: 2px solid var(--line); padding: 1.25rem 0 .5rem;
@@ -484,6 +484,23 @@ form.form .btn { justify-self: start; }
 .spec-table tbody th { font-family: var(--display); font-size: 1.15rem; white-space: nowrap; }
 .spec-table td:nth-child(2) { white-space: nowrap; font-weight: 600; }
 .spec-table td:nth-child(3) { color: var(--muted); max-width: 40ch; }
+
+.about-links.two { grid-template-columns: repeat(2, 1fr); }
+
+/* ---------- Product photo grids (Delta, Apple, Amara Raja pages) ---------- */
+.product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 1.25rem; margin-top: 2.5rem; }
+.product-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 900px) { .product-grid.cols-3 { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px) { .product-grid.cols-3 { grid-template-columns: 1fr; } }
+.product-card { margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; display: flex; flex-direction: column; }
+.product-card .shot { position: relative; background: #ffffff; aspect-ratio: 4 / 3; }
+.product-card .shot img { position: absolute; inset: 1rem; width: calc(100% - 2rem); height: calc(100% - 2rem); object-fit: contain; }
+.product-card .shot.photo img { inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.product-card figcaption { padding: 1rem 1.1rem 1.2rem; display: grid; gap: .3rem; }
+.product-card figcaption strong { font-family: var(--display); font-size: 1.15rem; font-weight: 700; }
+.product-card figcaption span { color: var(--muted); font-size: .95rem; }
+.photo-credits { margin-top: 1.5rem; color: var(--muted); font-size: .85rem; }
+.photo-credits a { color: inherit; }
 
 .also { margin-top: 2.5rem; padding-top: 1.75rem; border-top: 1px solid var(--line); max-width: 62ch; }
 .also h3 { font-size: 1.4rem; }
