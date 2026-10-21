@@ -202,24 +202,7 @@ section { padding-block: clamp(3.5rem, 8vw, 6rem); }
 @media (max-width: 960px) { .cards { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 600px) { .cards { grid-template-columns: 1fr; } }
 
-/* ---------- Logo grids (clients and partners) ---------- */
-.sector { padding-block: 2.5rem 1rem; }
-.sector-head {
-  display: flex; align-items: center; gap: 1rem;
-  padding-bottom: 1.1rem; margin-bottom: 1.5rem;
-  border-bottom: 1px solid var(--line);
-}
-.sector-head h2 { font-size: 1.7rem; }
-.sector-icon {
-  display: grid; place-items: center;
-  width: 48px; height: 48px; border-radius: 12px;
-  background: rgba(242, 196, 109, 0.12);
-  color: var(--accent);
-  border: 1px solid rgba(242, 196, 109, 0.28);
-}
-.sector-icon svg { width: 24px; height: 24px; }
-:root[data-theme="light"] .sector-icon { color: #8a5a00; }
-
+/* ---------- Logo grids (partners) ---------- */
 .logo-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1.1rem; }
 .logo-grid.wide { grid-template-columns: repeat(3, 1fr); }
 .logo-card {
@@ -240,7 +223,6 @@ section { padding-block: clamp(3.5rem, 8vw, 6rem); }
   position: absolute; inset: 0; display: grid; place-items: center; padding: 14px;
 }
 .logo-card .name { color: #12183a; font-family: var(--display); font-weight: 700; font-size: 1.05rem; text-align: center; line-height: 1.2; }
-.empty-note { color: var(--muted); padding-block: .5rem 1.5rem; }
 @media (max-width: 1000px) { .logo-grid { grid-template-columns: repeat(4, 1fr); } }
 @media (max-width: 760px) { .logo-grid, .logo-grid.wide { grid-template-columns: repeat(3, 1fr); } }
 @media (max-width: 520px) { .logo-grid, .logo-grid.wide { grid-template-columns: repeat(2, 1fr); } }

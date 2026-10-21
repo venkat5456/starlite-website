@@ -38,9 +38,9 @@ const SITE = {
    Save official logo files in images/partners/ (use each company's brand
    guidelines). Until the files exist, the name shows instead. */
 const PARTNERS = [
-  { name: "Apple", logo: "images/partners/apple.png" },
-  { name: "Delta Electronics", logo: "images/partners/delta-electronics.png", note: "Authorised partner", link: "delta-ups.html", linkText: "See the Delta UPS range" },
-  { name: "Amara Raja", logo: "images/partners/amara-raja.png" }
+  { name: "Apple", logo: "images/partners/apple.svg" },
+  { name: "Delta Electronics", logo: "images/partners/delta-electronics.svg", note: "Authorised partner", link: "delta-ups.html", linkText: "See the Delta UPS range" },
+  { name: "Amara Raja", logo: "images/partners/amara-raja.svg" }
 ];
 
 
