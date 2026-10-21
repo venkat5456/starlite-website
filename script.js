@@ -155,7 +155,7 @@ const STORIES = [
    Nothing below needs editing for normal changes.
    ========================================================= */
 
-const STAR = '<svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2 C17.2 10.5 21.5 14.8 30 16 C21.5 17.2 17.2 21.5 16 30 C14.8 21.5 10.5 17.2 2 16 C10.5 14.8 14.8 10.5 16 2 Z" fill="#f2c46d"/></svg>';
+const LOGO = '<img class="brand-logo" src="images/starlite-logo.png" alt="" width="48" height="40">';
 
 /* Saved theme (dark is the default, like the reference site) */
 (function () {
@@ -189,7 +189,7 @@ function buildHeader() {
   host.className = "site-header";
   host.innerHTML =
     '<div class="wrap bar">' +
-      '<a class="brand" href="index.html" aria-label="' + SITE.name + ', home">' + STAR + SITE.name + "</a>" +
+      '<a class="brand" href="index.html" aria-label="' + SITE.name + ', home">' + LOGO + SITE.name + "</a>" +
       '<nav class="nav" id="nav" aria-label="Main">' +
         '<a href="index.html"' + (page === "home" ? ' aria-current="page"' : "") + ">Home</a>" +
         '<div class="has-menu">' +
@@ -271,7 +271,7 @@ function buildFooter() {
   host.innerHTML =
     '<div class="wrap">' +
       '<div class="footer-grid">' +
-        '<div><a class="brand" href="index.html">' + STAR + SITE.name + '</a><p class="footer-about">' + SITE.tagline + "</p></div>" +
+        '<div><a class="brand" href="index.html">' + LOGO + SITE.name + '</a><p class="footer-about">' + SITE.tagline + "</p></div>" +
         "<div><h3>Services</h3><ul>" + services + "</ul></div>" +
         '<div><h3>Company</h3><ul><li><a href="about.html">About us</a></li><li><a href="success-stories.html">Success stories</a></li><li><a href="partners.html">Partners</a></li><li><a href="contact.html">Contact</a></li></ul></div>' +
         "<div><h3>Contact</h3><ul>" +

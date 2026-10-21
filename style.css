@@ -71,7 +71,7 @@ img { max-width: 100%; display: block; }
 }
 .bar { display: flex; align-items: center; gap: 1.5rem; min-height: 84px; }
 .brand { white-space: nowrap; display: inline-flex; align-items: center; gap: .6rem; text-decoration: none; font-family: var(--display); font-weight: 700; font-size: 1.15rem; letter-spacing: -0.01em; }
-.brand svg { width: 30px; height: 30px; flex: none; }
+.brand-logo { width: 48px; height: 40px; flex: none; background: #ffffff; border-radius: 8px; padding: 2px; box-sizing: content-box; object-fit: contain; }
 
 .nav { display: flex; align-items: center; gap: 2.1rem; margin-left: auto; }
 .nav > a, .menu-toggle {
