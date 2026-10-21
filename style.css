@@ -358,7 +358,7 @@ form.form .btn { justify-self: start; }
 .pill.small { padding: .25rem .8rem; font-size: .88rem; }
 .pill.sample { border-color: var(--line); background: transparent; color: var(--muted); }
 :root[data-theme="light"] .pill.sample { color: var(--muted); }
-.back-link { display: inline-block; margin-bottom: 1.5rem; color: var(--night-muted); text-decoration: none; font-weight: 500; }
+.back-link { display: inline-block; margin-bottom: 1.5rem; margin-right: 1rem; color: var(--night-muted); text-decoration: none; font-weight: 500; }
 .back-link:hover { color: var(--night-ink); text-decoration: underline; }
 .cs-body { max-width: 46rem; margin-inline: auto; }
 .cs-body h2 { font-size: 1.9rem; margin-top: 2.75rem; }

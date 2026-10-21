@@ -47,6 +47,7 @@ const PARTNERS = [
 /* ---------- 3. Success stories ----------
    Each entry becomes a card on success-stories.html AND its own full page
    (success-story.html?id=your-id). The first three also appear on the home page.
+   Stories with partner: "apple" also appear on apple.html.
    To add a project: copy the whole { ... } block, give it a new unique id
    (lowercase, dashes, no spaces) and fill in the details.
    Fields you leave empty ("" or []) are skipped.
@@ -147,6 +148,42 @@ const STORIES = [
       "Commissioned and load tested each unit, so that a fault in one auditorium never affects the others."
     ],
     result: "Every screen, including the flagship Dolby Cinema, has its own protected power supply, and shows carry on through outages without interruption.",
+    images: []
+  },
+  {
+    id: "ga-capital-management",
+    partner: "apple",
+    title: "GA Capital Management",
+    sector: "Financial services",
+    badge: "80 MacBook Pro",
+    location: "Begumpet, Hyderabad",
+    facts: [["Equipment", "80 × Apple MacBook Pro"], ["Supplied through", "Apple direct partner, DPP pricing"]],
+    summary: "A Hyderabad financial services firm equipping its team with Apple laptops. We supplied 80 MacBook Pro laptops at DPP pricing as an Apple direct partner.",
+    challenge: "A growing advisory and capital-structuring team needed fast, reliable laptops for every member, delivered together, configured the same way and bought at a competitive price.",
+    approach: [
+      "Confirmed the MacBook Pro configuration the team needed for its day-to-day work.",
+      "Sourced all 80 units through Ingram Micro at DPP pricing, as an Apple direct partner, so the firm paid partner prices across the whole order.",
+      "Delivered the laptops to the Begumpet office and handed them over ready for the team to use."
+    ],
+    result: "The whole team now works on genuine MacBook Pro laptops with full Apple warranty, bought at partner pricing in a single order.",
+    images: []
+  },
+  {
+    id: "kvn-productions",
+    partner: "apple",
+    title: "KVN Productions",
+    sector: "Film production",
+    badge: "Apple editing suite",
+    location: "",
+    facts: [["Scope", "Complete Apple editing suite"], ["Supplied through", "Apple direct partner, DPP pricing"]],
+    summary: "A film production and distribution house making films across Kannada, Telugu, Tamil, Hindi and Malayalam. We helped set up its entire editing suite on Apple.",
+    challenge: "Film editing needs powerful machines, fast storage and a suite that works the same way for every editor. The production house needed the whole suite planned, supplied and working before post-production began.",
+    approach: [
+      "Planned the edit suite around the production house's editing workflow and the number of editors.",
+      "Supplied the Apple workstations at DPP pricing as an Apple direct partner.",
+      "Set up the entire editing suite and handed it over ready for post-production."
+    ],
+    result: "Editors work in a complete Apple editing suite built for film post-production, set up by the team that has supplied the film industry since our first day.",
     images: []
   }
 ];
@@ -357,8 +394,9 @@ function esc(t) {
 function storyCard(c) {
   var card = el("article", "cs-card");
   var total = (c.facts || []).filter(function (f) { return f[0] === "Total capacity"; })[0];
+  var badge = c.badge || (total && total[1]);
   card.innerHTML =
-    '<div class="cs-tags"><span class="pill small">' + esc(c.sector) + "</span>" + (total ? '<span class="pill small">' + esc(total[1]) + "</span>" : "") + "</div>" +
+    '<div class="cs-tags"><span class="pill small">' + esc(c.sector) + "</span>" + (badge ? '<span class="pill small">' + esc(badge) + "</span>" : "") + "</div>" +
     "<h3>" + esc(c.title) + "</h3>" +
     (c.location ? '<p class="cs-meta">' + esc(c.location) + "</p>" : "") +
     "<p>" + esc(c.summary) + "</p>" +
@@ -366,10 +404,11 @@ function storyCard(c) {
   return card;
 }
 
-function buildStoryList(id, limit) {
+function buildStoryList(id, limit, partner) {
   var host = document.getElementById(id);
   if (!host) return;
-  STORIES.slice(0, limit || STORIES.length).forEach(function (c) { host.appendChild(storyCard(c)); });
+  var list = STORIES.filter(function (c) { return !partner || c.partner === partner; });
+  list.slice(0, limit || list.length).forEach(function (c) { host.appendChild(storyCard(c)); });
 }
 
 function buildStoryDetail() {
@@ -593,6 +632,7 @@ buildPartnerCards("partner-grid");
 buildPartners("partner-preview", "wide");
 buildContact();
 buildStoryList("cs-list");
+buildStoryList("apple-stories", 0, "apple");
 buildStoryDetail();
 startSky();
 startChooser();
