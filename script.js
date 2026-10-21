@@ -8,8 +8,8 @@
 const SITE = {
   name: "Starlite Computer Services",
   tagline: "UPS systems, batteries, networking and Apple for business, so your work never stops when the power goes out. An ISO 9001:2015 certified company.",
-  phone: "99849990056",
-  phoneLink: "99849990056",
+  // Shown as written; the link uses the digits only.
+  phones: ["+91 98499 90056", "+91 97053 00056"],
   email: "srinivasrao@starlitecomputerservices.com",
   addresses: [
     { label: "Vijayawada", text: "Jyothirmayee Hospital, 1-274-1, Poranki, Vijayawada Rural, Andhra Pradesh" },
@@ -222,6 +222,10 @@ function el(tag, className, text) {
   return node;
 }
 
+function telLink(number) {
+  return '<a href="tel:' + number.replace(/[^+\d]/g, "") + '">' + number + "</a>";
+}
+
 /* ---------- Header and footer (same on every page) ---------- */
 function buildHeader() {
   var host = document.getElementById("site-header");
@@ -326,7 +330,7 @@ function buildFooter() {
         '<div><h3>Company</h3><ul><li><a href="about.html">About us</a></li><li><a href="success-stories.html">Success stories</a></li><li><a href="partners.html">Partners</a></li><li><a href="contact.html">Contact</a></li></ul></div>' +
         "<div><h3>Contact</h3><ul>" +
           SITE.addresses.map(function (a) { return "<li><strong>" + a.label + ":</strong> " + a.text + "</li>"; }).join("") +
-          '<li><a href="tel:' + SITE.phoneLink + '">' + SITE.phone + "</a></li>" +
+          SITE.phones.map(function (n) { return "<li>" + telLink(n) + "</li>"; }).join("") +
           '<li><a href="mailto:' + SITE.email + '">' + SITE.email + "</a></li>" +
           (SITE.whatsapp ? '<li><a href="https://wa.me/' + SITE.whatsapp + '">Chat on WhatsApp</a></li>' : "") +
         "</ul></div>" +
@@ -492,7 +496,7 @@ function buildContact() {
   var details = document.getElementById("contact-details");
   if (details) {
     details.innerHTML =
-      '<div><dt>Phone</dt><dd><a href="tel:' + SITE.phoneLink + '">' + SITE.phone + "</a></dd></div>" +
+      "<div><dt>Phone</dt><dd>" + SITE.phones.map(telLink).join("<br>") + "</dd></div>" +
       '<div><dt>Email</dt><dd><a href="mailto:' + SITE.email + '">' + SITE.email + "</a></dd></div>" +
       SITE.addresses.map(function (a) { return "<div><dt>" + a.label + " office</dt><dd>" + a.text + "</dd></div>"; }).join("") +
       "<div><dt>Hours</dt><dd>" + SITE.hours.join("<br>") + "</dd></div>" +
@@ -552,7 +556,7 @@ function buildContact() {
         form.reset();
         status.textContent = "Request sent. We'll reply to " + email + " within one working day.";
       }).catch(function () {
-        status.innerHTML = 'Your request was not sent. Call us on <a href="tel:' + SITE.phoneLink + '">' + SITE.phone + '</a> or email <a href="mailto:' + SITE.email + '">' + SITE.email + "</a>.";
+        status.innerHTML = 'Your request was not sent. Call us on ' + SITE.phones.map(telLink).join(" or ") + ' or email <a href="mailto:' + SITE.email + '">' + SITE.email + "</a>.";
       }).then(function () { button.disabled = false; });
     });
   }
