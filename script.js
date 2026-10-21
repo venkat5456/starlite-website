@@ -30,7 +30,8 @@ const SITE = {
     { slug: "ups-maintenance", title: "Annual maintenance contracts", text: "Scheduled preventive visits and priority support to keep your UPS in good health." },
     { slug: "ups-repair", title: "UPS repair and breakdown support", text: "Fast fault diagnosis and repair, with spares for commonly used models." },
     { slug: "ups-batteries", title: "Battery replacement and testing", text: "Battery health checks, replacement, and responsible disposal of old batteries." },
-    { slug: "ups-rental", title: "UPS rental and backup units", text: "Temporary UPS units for events, shutdowns, upgrades and short-term projects." }
+    { slug: "ups-rental", title: "UPS rental and backup units", text: "Temporary UPS units for events, shutdowns, upgrades and short-term projects." },
+    { slug: "networking", title: "Networking solutions", text: "Fast, secure and scalable business networks: cabling, switches, Wi-Fi, firewalls and VPNs." }
   ]
 };
 
